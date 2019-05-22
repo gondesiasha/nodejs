@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var isuser=function(objects){
+			if(typeof(objects)=="object")
+			{	
+			var key=Object.keys(objects);
+			var res=key.every(function(obj){
+				return (((obj.indexOf("name")!=-1)||(obj.indexOf("scren_name")!=-1))&&(typeof(obj)=="string"));
+
+			})
+			return res;
+		}
+		else
+			return false;
+			
+			};
+			console.log(isuser({ "name":"Semmy Purewal", "screen_name":"semmypurewal" }));
+		console.log(isuser({ "age": 37, "name":"Semmy Purewal", "screen_name":"semmypurewal" }));
+	console.log(isuser("as"));
+
+
+//Often when working with HTML, we'll want to take data stored in an object and
+// display it as an HTML `div` element. For example, suppose we have a person
+// object which contains a name and a screen_name. We'd like to produce a `div`
+// that contains an `h1` element with the name, and an `h2` element with
+// screen_name. For example:
+
+
+		var user=function(objects1){
+			var newString="";
+			newString=newString+"<div>";
+			var keys=Object.keys(objects1);
+			if(isuser(objects1)==true)
+			{
+			//console.log(value);
+			for(let i=0;i<keys.length;i++)
+			{
+				if(keys[i]=="name")
+				{
+					newString=newString+"<h1>"+objects1[keys[i]]+"</h1>";
+				}
+				else
+					newString=newString+"<h2>"+objects1[keys[i]]+"</h2";
+			}
+			newString=newString+"</div>";
+			return newString;
+			}
+			else
+				return "Error";
+
+			
+			
+		};
+		console.log(user( { "name":"Semmy Purewal", "screen_name":"semmypurewal" }));
+
+
+		//Now suppose we have a user object that contains a list of tweets. In HTML, we
+// may want to represent that as a list element with a set of list items. That
+// looks something like this:
+var userwithTweetsToDiv=function(object2)
+{
+	var newString1="";
+	var newString1=newString1+"<div>";
+	var key=Object.keys(object2);
+	for(let i=0;i<key.length;i++)
+	{
+		if(key[i]=="name")
+		{
+			newString1=newString1+"<h1>"+object2[key[i]]+"</h1>";
+		}
+		else if(key[i]=="screen_name")
+		{
+			newString1=newString1+"<h2>"+object2[key[i]]+"</h2>";
+		}
+		else
+		{
+			newString1=newString1+"<ul>";
+			for(let i=0;i<object2.tweets.length;i++){
+			newString1=newString1+"<li>"+object2['tweets[i]']+"</li>";
+			}
+			newString1=newString1+"</ul>";
+		}
+	}
+	return newString1;
+
+
+
+};
+console.log(userwithTweetsToDiv(   {"name": "Semmy Purewal",
+                              "screen_name":"semmypurewal",
+                tweets: [
+             "this is a tweet.",
+             "this is another tweet!"
+         ]
+         }));   
+
+
+
+         var frequencies=function(arr){
+         	var newarr=[];
+         	var c=0;
+         	for(let i=0;i<arr.length;i++)
+         	{
+         		
+         			if(i==0)
+         			{
+         				newarr.push(arr[i]);
+         			}
+         			else
+         			{
+         				let v=0;
+         				for(let j=0;j<newarr.length;j++)
+         				{
+         					if(newarr[j]==arr[i])
+         					{
+         						v=1;
+
+         					}
+         				}
+         				if(v==0)
+         				{
+         					newarr.push(arr[i]);
+         				}
+         			}
+
+         		}
+         		for(let k=0;k<newarr.length;k++)
+         		{
+         			for(let k1=0;k1<arr.length;k1++)
+         			{
+         				if(newarr[k]==arr[k1])
+         				{
+
+         				}
+         			}
+
+         		}
+
+
+
+
+         		
+
+         			
+         
+         	return newarr;
+
+         };
+         console.log(frequencies([ "hello", "world", "hello", "goodbye", "hello", "world", "thing" ]));                   
+
+</script>
+
+</body>
+</html>
