@@ -46,7 +46,7 @@
 					newString=newString+"<h1>"+objects1[keys[i]]+"</h1>";
 				}
 				else
-					newString=newString+"<h2>"+objects1[keys[i]]+"</h2";
+					newString=newString+"<h2>"+objects1[keys[i]]+"</h2"; 
 			}
 			newString=newString+"</div>";
 			return newString;
@@ -104,7 +104,9 @@ console.log(userwithTweetsToDiv(   {"name": "Semmy Purewal",
 
          var frequencies=function(arr){
          	var newarr=[];
-         	var c=0;
+         	var newarr1=[];
+         	var object={};
+         
          	for(let i=0;i<arr.length;i++)
          	{
          		
@@ -132,15 +134,27 @@ console.log(userwithTweetsToDiv(   {"name": "Semmy Purewal",
          		}
          		for(let k=0;k<newarr.length;k++)
          		{
+         			var c=0;
          			for(let k1=0;k1<arr.length;k1++)
          			{
          				if(newarr[k]==arr[k1])
          				{
+         					c++;
+
 
          				}
          			}
+         			newarr1.push(c);
+
 
          		}
+         		for(let i=0;i<newarr.length;i++)
+         		{
+         			//object[i]=newarr[i];
+         			object[newarr[i]]=newarr1[i];
+         		}
+         		return object;
+
 
 
 
@@ -149,10 +163,20 @@ console.log(userwithTweetsToDiv(   {"name": "Semmy Purewal",
 
          			
          
-         	return newarr;
+         	//return newarr1
+         	//console.log(newarr1);
 
          };
-         console.log(frequencies([ "hello", "world", "hello", "goodbye", "hello", "world", "thing" ]));                   
+         console.log(frequencies([ "hello", "world", "hello", "goodbye", "hello", "world", "thing" ]));  
+
+// Write a function that accepts an array of strings, and returns an object that
+// represents the number of times that each string appears in the array. This might
+// sound confusing, but this is what we'd like to have happen.
+
+
+
+
+
 
 </script>
 
