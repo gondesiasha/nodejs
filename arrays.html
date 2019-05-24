@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var containsTwice=function(num,array){
+			var c=0
+			for(var i=0;i<array.length;i++)
+			{
+				if(array[i]==num)
+				{
+					c++;
+				}
+
+			}
+			if((c>2)||(c==1))
+			{
+				return false;
+			}
+			else 
+				return true;
+
+		};
+		console.log(containsTwice(5,[1,2,4,5,6]));
+		console.log(containsTwice(5,[8,5,6,5,5]));
+		console.log(containsTwice(5,[8,5,6,5,4]));
+		console.log(containsTwice("hello",["hello","world","hello"]));
+		console.log(containsTwice("hello",["hello","world","asha"]));
+
+
+
+
+		//Generalize the previous solution into a function called `containsNTimes` so
+// that it can check for a value an arbitrary number of times.
+		
+var containsNTimes=function(num1,num2,arr){
+	var i,c=0;
+	for(i=0;i<arr.length;i++)
+	{
+		if(arr[i]==num2)
+		{
+			c++;
+		}
+
+	}
+	if(c==num1)
+	{
+		return true;
+	}
+	else 
+		return false;
+
+};
+console.log(containsNTimes(3,"hello",["hello","hello","hello"]));
+console.log(containsNTimes(5,"hello",["hello","hello","hello"]));
+console.log(containsNTimes(0,5,[1,4,5,6,7]));
+
+
+
+
+//Write a function called `atLeastOneEven` that returns `true` if at least one of
+// the numbers in input array is even, false otherwise. It should throw an error if
+// the argument is not an array.
+
+var atleastoneeven=function(Arr){
+	 let check=Array.isArray(Arr);
+	 let c=0;
+	 //console.log(check)
+	 if((typeof(Arr)!="string"))
+	 {
+	 if(check)
+	 {
+	 	for(var i=0;i<Arr.length;i++)
+	 	{
+	 		if(Arr[i]%2==0)
+	 		{
+	 			c++;
+	 		}
+	 	}
+	 	if(c>=1)
+	 	{
+	 		return true;
+	 	}
+	 	else
+	 		return false;
+
+	 }
+	 else 
+
+
+	 return false;
+}
+else 
+return "input  must be an array";
+
+};
+console.log(atleastoneeven([3,5,6,7,9]));
+console.log(atleastoneeven([]));
+console.log(atleastoneeven([ 101, 203, 401 ]));
+console.log(atleastoneeven("asha"));
+
+// Write a function called `allStrings` that accepts an array as an argument and
+// returns `true` if all of the values in the array are strings. It should
+// return false if they are not all strings, and throw an error if the input is
+// not an array.
+
+var allStrings=function(arr1)
+{
+	let ch=Array.isArray(arr1);
+	var c=0;
+	if(ch)
+	{
+		for(var i=0;i<arr1.length;i++)
+		{
+			if(typeof(arr1[i])!="string")
+			{
+				 c=1;
+			}
+			if(c==1)
+				break;
+		}
+		if(c==1)
+			return false;
+		else 
+			return true;
+
+
+	}
+	else
+		return "input should be an array!";
+
+
+};
+console.log(allStrings(["hello","hii","hlo"]));
+console.log(allStrings([ ]));
+console.log(allStrings(["hii","asha",5,"how",5]));
+console.log(allStrings("hiiii"));
+
+
+ //Write a function that accepts two arrays, and returns true if any of the
+// values in the first array appear twice in the second array. You might want to
+// reuse the function `containsNTimes` or `containsTwice` from above. It should
+// throw an error if either of the inputs are not arrays.
+
+var containsAnyTwice=function(array1,array2){
+	let ch1=Array.isArray(array1);
+	let ch2=Array.isArray(array2);
+	let c;
+	if((ch1)&&(ch2))
+	{
+		for(let i=0;i<array1.length;i++)
+		{
+			c=0;
+			for(let j=0;j<array2.length;j++)
+			{
+				if(array1[i]==array2[j])
+				{
+					c++;
+				}
+				if(c==2)
+					break;
+
+			}
+			if(c==2)
+				break;
+		}
+		if(c==2)
+		return true;
+	else 
+		return false;
+
+
+	}
+	else
+		return " containsAnyTwice expects two arguments, both of which should be an array. ";
+
+
+};
+console.log(containsAnyTwice([1,2],[1,2,5,2]));
+console.log(containsAnyTwice("hiiiii",["how","what"]));
+console.log(containsAnyTwice([ ],[1,4,6,7,4]));
+console.log(containsAnyTwice(["hello","world"],["hello","hello","world","world"]));
+
+//In the previous problem, we determined whether or not an array contains any
+// of a list of values exactly twice. In this problem, we'll actually return
+// those values appearing twice.  Create a new function that returns an array of
+// only the values from the first array that appear twice in the second array.
+//
+// For this problem, you'll create a new array, and you'll use its `push`
+// function to add elements to the end. You'll most likely want to use the
+// `containsTwice` function you created in the previous exercise.
+//
+// The difficulty here will be in avoiding duplicates. You may want to use the
+// `indexOf` method of the resulting array to confirm that you're not adding a
+// value a second time.
+
+var getValuesAppearingTwice=function(arry){
+	let i;
+	let newarry=[ ];
+	for(i=0;i<arry.length;i++)
+	{
+		let c=0;
+		for(let j=0;j<arry.length;j++)
+		{
+			if(arry[i]==arry[j])
+			{
+				c++;
+			}
+
+			if(c==2)
+			{
+				if(newarry.length==0)
+				{
+					newarry.push(arry[i]);
+				}
+				else
+				{
+
+				
+				
+				var p=0;
+			
+				for(var  k=0;k<newarry.length;k++)
+				{
+		
+					if(newarry[k]==arry[i])
+					{
+						var p=1;
+
+					}
+
+				}
+				if(p==0)
+				{
+					newarry.push(arry[i]);
+					break;
+		
+				}
+			}
+				
+			}
+
+		}
+
+	}
+	return newarry;
+
+};
+console.log(getValuesAppearingTwice([1,1,2,2]));
+console.log(getValuesAppearingTwice(["hello", "hello", "world", "world", "goodbye"]));
+console.log(getValuesAppearingTwice(["hello", "world", "goodbye"]
+));
+console.log(getValuesAppearingTwice(["hello", 1, "world", 1]));
+
+
+// Using a standard `for` loop, along with the `push` function, write a function
+// called `range` that accepts two numbers, `begin` and `end`, and returns an array
+// that contains all of the integers starting at `begin` and ending at `end`
+// (including `begin` and `end`). For example:
+
+
+var range=function(n1,n2)
+{
+	var newarray=[];
+	var i;
+	if((typeof(n1)=="number")&&(typeof(n2)=="number"))
+	{
+		if(n1<n2)
+		{
+	for(i=n1;i<=n2;i++)
+	{
+		newarray.push(i);
+
+	}
+	return newarray;
+} 
+else 
+{
+	for(i=n1;i>=n2;i--)
+	{
+		newarray.push(i);
+	}
+	return newarray;
+
+}
+
+
+}
+else
+     return " arguments to range must be numbers";
+
+};
+console.log(range(5,10));
+console.log(range(10,5));
+
+// Using the `isHTMLElement` and `getTagName` function from one of the previous
+// sections, write a function called `mapToTags` that accepts an array of HTML
+// elements and returns a new array that consists of only the tags associated with
+// those HTML elements. It should throw an error if any of the elements are not
+// HTML elements, or if the input is not an array.
+
+var mapToTags=function(ar1)
+{
+	var newar=[ ];
+	let c1=Array.isArray(ar1);
+	let c=0;
+
+	//documen
+	if(c1)
+	{
+
+	
+
+	
+
+	for(i=0;i<ar1.length;i++)
+	{
+		var s=ar1[i];
+		var s1=s.indexOf("<");
+		var s2=s.indexOf(">");
+		var s3=s.lastIndexOf("<");
+		var s4=s.lastIndexOf(">");
+		var s5=s.slice(s1+1,s2);
+		var s6=s.slice(s3+2,s4);
+
+		if(s5==s6)
+		{
+			newar.push(s5);
+			c++;
+
+		}
+	}
+		if(c!=ar1.length)
+		{
+			return " all entries must be html elements! "
+
+		}
+		else 
+			return newar;
+
+
+
+
+	//return  newa
+}
+else
+return "wat";
+
+	
+
+/*	if((c1)&&(c2))
+	{
+
+	}
+	else
+		return*/
+
+	
+
+
+};
+console.log(mapToTags(["<p>this is a paragraph</p>", "<li>this is a tweet</li>"]));
+console.log(mapToTags(["<p>this is a paragraph</p>", "this is a tweet"]));
+console.log(mapToTags([ "not an html element" ]));
+console.log(mapToTags(5));
+
+//Write a function called `filterToLol` which accepts an array of tweets and
+// returns an array that consists only of those that contain `lol` (upper, lower,
+// or mixed-case). It should throw an error if the input is not an array or if any
+// of the elements are not strings.
+
+var filterToLol=function(a){
+	var n=[];
+	let c1=Array.isArray(a);
+	if(c1)
+	{
+		for(let i=0;i<a.length;i++)
+		{
+			if((typeof(a[i])=="string"))
+			{
+
+
+			var low=a[i].toLowerCase();
+			if(low.indexOf("lol")!=-1)
+			{
+				n.push(low);
+
+			}
+		}
+		else 
+			return " all entries must be strings";
+		}
+		return n;
+
+	}
+	else
+		return "no can do";
+
+};
+console.log(filterToLol(["lol", "LOL", "LoL", "omg", "lollerskates"]));
+console.log(filterToLol(["omg", "this is a tweet"]));
+console.log(filterToLol(["omg", this]));
+
+
+
+
+
+
+
+
+
+
+		
+	</script>
+
+</body>
+</html>
