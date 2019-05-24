@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loops</title>
+</head>
+<body>
+<script type="text/javascript">
+	var isVowel = function (char) {
+		var vowels=["a","e","i","o","u"];
+		if(typeof char==="string")
+			return vowels.indexOf(char.toLowerCase())!=-1;
+		else
+			return false;
+};
+console.log(isVowel("a"));
+console.log(isVowel("E"));
+console.log(isVowel(1));
+console.log(isVowel("Ea"));
+console.log(isVowel("Y"));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var isLowerCaseLetter = function (char) {
+		if ((char.length==1)&&(typeof char==="string")){
+			if((char>="a")&&(char<="z"))
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+};
+console.log(isLowerCaseLetter("g"));
+console.log(isLowerCaseLetter("A"));
+console.log(isLowerCaseLetter(1));
+console.log(isLowerCaseLetter("ae"));
+console.log(isLowerCaseLetter(true));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var sumUpTo = function (n) {
+		if(n>=0){
+		var i=1;
+		var sum=0;
+		while(i<=n)
+		{
+			sum=sum+i;
+			i++;
+		}
+		return sum;}
+		else
+			return ("input must be a zero or a positive number!");
+};
+console.log(sumUpTo(100));
+console.log(sumUpTo(100));
+console.log(sumUpTo(0));
+console.log(sumUpTo(-10));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var sumAToB = function (a,b) {
+		var sum=0;
+		if((typeof a=="number")&&(typeof b=="number"))
+		{
+			if(a<b){
+		while(a<=b)
+		{
+			sum=sum+a;
+			a++;
+		}
+		return Math.abs(sum);}
+			else{
+		while(a>=b)
+		{
+			sum=sum+a;
+			a--;
+		}
+		return Math.abs(sum);
+			}
+		}
+		else
+			return "inputs should be numbers!";
+};
+console.log(sumAToB(10, 20));
+console.log(sumAToB(0, -15));
+console.log(sumAToB(-10, 500));
+console.log(sumAToB(10, 10));
+console.log(sumAToB("hello", "world"));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var countVowels = function (str) {
+		if(typeof str==="string")
+		{
+			var index;
+			var count=0;
+			var vowels=["a","e","i","o","u"];
+			for(index=0;index<str.length;index++)
+			{
+				if (vowels.indexOf(str[index].toLowerCase())!=-1) {
+					count++;
+			}}
+			return count;
+		}
+		else
+			return "input to countVowels must be a string!";
+};
+console.log(countVowels("hello world!"));
+console.log(countVowels("omg this is a hilarious tweet about nothing"));
+console.log(countVowels(""));
+console.log(countVowels(true));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var reverseString = function (str) {
+		var index;
+		var result="";
+		if(typeof str==="string"){
+		for(index=str.length-1;index>0;index--)
+		{
+			result=result +str[index];
+		}
+		return result;}
+		else
+			return "input to reverseString must be an string!";
+};
+console.log(reverseString("hello world!"));
+console.log(reverseString("omg this is a hilarious tweet about nothing"));
+console.log(reverseString(""));
+console.log(reverseString(true));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var isPrime = function (p) {
+		var n;
+		var count=0;
+		if((p>1)&&(typeof p==="number")){
+		for(n=1;n<=p;n++){
+			if(p%n==0)
+				count++;
+		}
+		if(count==2)
+			return true;
+		else
+			return false;
+	}
+		else
+			return false;
+};
+console.log(isPrime(101));
+console.log(isPrime(13));
+console.log(isPrime(1));
+console.log(isPrime(2));
+console.log(isPrime(-101));
+console.log(isPrime("hello"));
+console.log("\n");
+</script>
+<script type="text/javascript">
+var sumPrimesUpTo = function (range) {
+	var sum=0;
+	var n;
+	var p;
+	if(typeof range ==="number"){
+	for(p=1;p<=range;p++)
+	{
+		var count=0;
+		for(n=1;n<=p;n++){
+			if(p%n==0)
+				count++;
+		}
+		if(count==2)
+			sum=sum+p;
+	}
+	return sum;}
+	else
+		return "input should be a number";
+};	
+console.log(sumPrimesUpTo(100));
+console.log(sumPrimesUpTo(0));
+console.log(sumPrimesUpTo(1000));
+console.log(sumPrimesUpTo(2));
+console.log(sumPrimesUpTo("whatever"));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var sumOfFirstNPrimes = function (num) {
+	var n;
+	var p=1;
+	var sum=0;
+	var prime=0;
+	if(num>=0){
+	while(1)
+	{
+		var count=0;
+		for(n=1;n<=p;n++){
+			if(p%n==0)
+				count++;
+		}
+		if(count==2){
+			sum=sum+p;
+			prime++;
+		}
+		if(prime==num){
+			return sum;
+			break;
+		}
+		else
+			p++;
+	}}
+	else{
+		return "input number should be zero or a positive number!";
+	}
+
+};
+console.log(sumOfFirstNPrimes(10));
+console.log(sumOfFirstNPrimes(1000));
+console.log(sumOfFirstNPrimes(100));
+console.log(sumOfFirstNPrimes(0));
+console.log(sumOfFirstNPrimes(1));
+console.log(sumOfFirstNPrimes(-10));
+console.log("\n");
+</script>
+<script type="text/javascript">
+	var isPalindrome = function (string) {
+		var index;
+		var char="";
+		for(index=0;index<=string.length-1;index++)
+		{
+			if(((string[index].toLowerCase()>="a")&&(string[index].toLowerCase()<="z")))
+				char=char+string[index].toLowerCase();
+		}
+		//return char;
+		var result="";
+		for(index=char.length-1;index>=0;index--)
+		{
+			result=result +char[index];
+		}
+		//return result;
+		if(result==char)
+			return true;
+		else
+			return false;
+};
+console.log(isPalindrome("kayak"));
+console.log(isPalindrome("A man, a plan, a canal, Panama"));
+console.log(isPalindrome("hello world"));
+console.log(isPalindrome("rear"));
+</script>
+</body>
+</html>
