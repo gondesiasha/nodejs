@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+
+// For this problem, write a function using `reduce` that "flattens" a possibly
+// nested array into a single array.
+		var flattened=function(arr){
+			var arr1=arr.reduce(function(accumulator,currentValue){
+				return accumulator.concat(currentValue);
+			});
+			console.log(arr1);
+
+		};
+		flattened([[1,4],6,[9,8],0]);
+
+// In one of the previous sections, we had an practice problem where you had to
+// reverse a string. Do the same thing with an array, but use the `reduce` and
+// `concat` methods to avoid local variables.
+		var reverse=function(arr2){
+			//var newarr=[ ];
+						var arr3=arr2.reduceRight(function(accumulator,currentValue){
+				return accumulator+","+currentValue;
+
+			});
+			console.log(arr3);
+
+		};
+		reverse([1,2,3,4,5,6]);
+		reverse(["helo","world"]);
+
+	//	Using `range` and a chain of array methods, write a function that accepts a
+// number `n` and returns the sum of all of the positive multiples of 3 and 5 that
+// are smaller than or equal to `n`.
+
+
+var summultiples=function(num){
+	var newar=[];
+	for(var i=0;i<num;i++)
+	{
+		newar.push(i);
+
+	}
+	var arr4=newar.reduce(function(total,num1){
+		if((num1%3==0)||(num1%5==0))
+		{
+			 total=total+num1;
+		}
+		return total;
+
+	});
+	return arr4;
+
+};
+console.log(summultiples(100));
+
+
+// Write a function called atLeastOneVowel that accepts a string and
+// returns true if that word contains at least one vowel. Do not use a
+// `for` loop or a `forEach` loop.
+
+var atLeastOneVowel=function(str){
+	var str1=str.split("");
+	var str2=str1.some(function(st){
+		return ((st=="a")||(st=="e")||(st=="i")||(st=="o")||(st=="u"))
+		 
+	})
+	return str2;
+
+};
+console.log(atLeastOneVowel("hello"));
+console.log(atLeastOneVowel("dry"));
+console.log(atLeastOneVowel("sdfjkl"));
+
+//Write a function that accepts an array of HTMLElements and returns an
+// array of their content.
+
+var elementsTocontent=function(strr1){
+	var n=[];
+	var n1=strr1.forEach(function(st1){
+		var st2=st1.indexOf(">");
+	var st3=st1.lastIndexOf("<");
+	var st4=st1.slice(st2+1,st3);
+	 n.push(st4);
+	});
+	return n;
+	
+
+
+
+};
+console.log(elementsTocontent(["<p>this is a paragraph</p>","<li>list item</li>","<a> link!</a>"]));
+
+ //Write a function that accepts a list of tweets, and returns the
+// longest tweet that contains the word `awesome` or the empty string
+// if no tweet contains the word awesome.
+
+var longestAwesome=function(longarr){
+	var longword=longarr.reduce(function(str1,str2){
+		if((str1.indexOf("awesome")!=-1)||(str2.indexOf("awesome")!=-1))
+		{
+			if(str1.length<str2.length)
+			{
+				str1=str2;
+
+			}
+
+		}
+		else 
+		{
+		 return "not there";
+		}
+		return str1;
+
+
+	});
+	return longword;
+
+
+};
+console.log(longestAwesome([ "awesome", "longer tweet with awesome", "not awesome", "empty" ]))
+console.log(longestAwesome(["hello","world"]));
+
+
+// In a previous section, we created a function called `randUpTo` that
+// returned a random integer up to an upper bound. Using that function
+// along with the `range` function, write a method called
+// `randomArray` that accepts two numbers, `length`, and `max`. It
+// should return an array of length `length` that contains random
+// numbers up to the value `max`.
+var array=function(length,max){
+	var arr=[];
+	for(let j=0;j<max;j++){
+
+
+	var x=Math.floor(Math.random()*max)
+	var i=0;
+	if(i<length)
+	{
+		arr.push(x);
+		i++;
+	}
+	if(arr.length>=length)
+	{
+		break;
+	}
+}
+	return arr;
+
+};
+console.log(array(10,100))
+
+
+
+//Using the `randomNums` function from above, write a function called
+// `randomElements` that accepts an array, and a number, `n` and
+// returns a new array that consists of `n` random elements selected
+// from the input array. Duplicates are allowed.
+
+var randomElements=function(strarr,n){
+	var arr1=[];
+	for(let i=0;i<n;i++)
+	{
+	var y=strarr[Math.floor(Math.random()*strarr.length)];
+	var j=0;
+	if(j<n)
+	{
+		arr1.push(y);
+		j++;
+	}
+	if(arr1.length>=n)
+	{
+		break;
+	}
+
+
+
+}
+	return arr1;
+
+
+
+
+};
+console.log(randomElements([ "red", "orange", "yellow", "green", "blue", "purple", "gray", "black", "white" ],5));
+
+
+
+
+
+	
+
+	
+
+	</script>
+
+</body>
+</html>
