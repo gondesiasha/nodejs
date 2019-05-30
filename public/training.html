@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Training</title>
+</head>
+<body>
+	<h1>TRAINING</h1>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<table id="books">
+						<tr>
+							<th>Title</th>
+							<th>Author</th>
+							<th>lastname</th>
+							<th></th>
+						</tr>
+					</table>
+
+</body>
+</html>
+<script type="text/javascript">
+	$.ajax({
+		url:'/api/books2',
+		success:function(books){
+			console.log(books)
+			books.forEach(function(book){
+				$("#books").append("<tr><td>" + book.title+ "</td><td>" + book.author_fname+ "</td><td>" + book.author_lname+ "</td><td>  <button onclick=deleteBook('" + book.id + "')>Delete</button></td></tr>" )
+			})
+			
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})
+
+
+
+	
+</script>
